@@ -15,13 +15,13 @@ const {
 const BaseButton = styled.button`
   box-sizing: border-box;
   font-weight: 500;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   text-transform: uppercase;
   background-color: ${primary};
   color: ${white};
   border-radius: 2px;
-  border-width: 0px;
+  border 2px solid transparent;
 
   &:hover {
     background-color: ${primaryLight};
@@ -32,10 +32,11 @@ export const MediumButton = styled(BaseButton)`
   font-size: 18px;
   line-height: 21px;
   border-radius: 3px;
-  padding: 16px 24px;
+  padding: 12px 20px;
 
   &:focus {
-    box-shadow: 0 0 0 2.5px ${white}, 0 0 0 4px ${primary};
+    outline: 1.5px solid ${primary};
+    outline-offset: 2.5px;
   }
 `;
 
@@ -43,10 +44,11 @@ export const SmallButton = styled(BaseButton)`
   font-size: 16px;
   line-height: 19px;
   border-radius: 2px;
-  padding: 8px 16px;
+  padding: 4px 12px;
 
   &:focus {
-    box-shadow: 0 0 0 2px ${white}, 0 0 0 3px ${primary};
+    outline: 1px solid ${primary};
+    outline-offset: 2px;
   }
 `;
 
@@ -54,20 +56,25 @@ export const LargeButton = styled(BaseButton)`
   font-size: 21px;
   line-height: 25px;
   border-radius: 4px;
-  padding: 20px 36px;
+  padding: 16px 32px;
 
   &:focus {
-    box-shadow: 0 0 0 3px ${white}, 0 0 0 5px ${primary};
+    outline: 2px solid ${primary};
+    outline-offset: 3px;
   }
 `;
 
 const ghostStyles = css`
-  background-color: hsl(240deg 10% 50% / 0);
+  background-color: transparent;
   color: ${gray};
 
   &:hover {
     background-color: ${transparentGray15};
     color: ${black};
+  }
+
+  &:focus {
+    outline-offset: 0;
   }
 `;
 
